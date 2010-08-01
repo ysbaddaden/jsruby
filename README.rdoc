@@ -1,0 +1,18 @@
+= JSRuby
+
+A Ruby 1.9 virtual machine in JavaScript (thanks to node.js).
+
+Heavily influenced by HotRuby 
+
+= Requires
+
+- node.js (of course)
+- Ruby 1.9.2 (YARV), for actually compiling ruby source code to opcodes.
+
+= License
+
+Distributed under the Ruby license: http://www.ruby-lang.org/en/LICENSE.txt
+
+= Authors
+
+- Julien Portalier <ysbaddaden@gmail.com>
