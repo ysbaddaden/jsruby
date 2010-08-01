@@ -1,0 +1,2 @@
+bin/node*
+tests/*.js

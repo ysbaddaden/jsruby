@@ -1,0 +1,8 @@
+#! /bin/sh
+
+ROOT="`dirname $0`/.."
+PATH=$PATH:$ROOT/bin
+
+ruby $ROOT/src/compile.rb "$1" > "$1.js"
+node $ROOT/src/ruby.js "$1.js"
+
