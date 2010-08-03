@@ -1,2 +1,4 @@
 bin/node*
 tests/*.js
+tests/**/*.js
+
