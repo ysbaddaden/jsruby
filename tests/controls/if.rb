@@ -9,4 +9,5 @@ else
   c = nil
 end
 
-c if t
+c = true if t
+c

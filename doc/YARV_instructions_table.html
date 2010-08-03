@@ -1,0 +1,279 @@
+
+<?xml version='1.0' encoding='SHIFT_JIS'?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"><!--
+  $Id: insnstbl.html,v 1.1 2004/02/05 04:09:25 ko1 Exp $
+  diary index
+  --><html xml:lang='ja' xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+	<meta content='text/html;charset=Shift_JIS' http-equiv='Content-Type'/>
+	<meta content='text/css' http-equiv='Content-Style-Type'/>
+	<meta content='text/javascript' http-equiv='Content-Script-Type'/>
+
+	<link href='./contents.css' rel='stylesheet' type='text/css'/>
+
+	<title>YARV: Yet another RubyVM / Instruction Table</title>
+
+	<link href='mailto:ko1 at atdot.net' rev='made'/>
+	<link href='../index.html' rel='index'/>
+</head>
+    <body>
+	<h1>YARV: Instruction Table</h1>
+<table border='1' cellspacing='1' align='center'>
+  <tr>
+    <th>type</th>
+    <th>Index</th>
+    <th>Instruction</th>
+    <th>Operands</th>
+    <th colspan='3'>Stacks</th>
+  </tr>
+  <tr>
+<td>nop</td><td>0</td><td>nop</td><td>&nbsp;</td><td>&nbsp;</td><td> =&gt; </td><td>&nbsp;</td></tr>
+<tr>
+<td>variable</td><td>1</td><td>getlocal</td><td>idx</td><td>&nbsp;</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>2</td><td>setlocal</td><td>idx</td><td>val</td><td> =&gt; </td><td>&nbsp;</td></tr>
+<tr>
+<td></td><td>3</td><td>getspecial</td><td>idx, type</td><td>&nbsp;</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>4</td><td>setspecial</td><td>idx</td><td>obj</td><td> =&gt; </td><td>&nbsp;</td></tr>
+<tr>
+<td></td><td>5</td><td>getdynamic</td><td>idx, level</td><td>&nbsp;</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>6</td><td>setdynamic</td><td>idx, level</td><td>val</td><td> =&gt; </td><td>&nbsp;</td></tr>
+<tr>
+<td></td><td>7</td><td>getinstancevariable</td><td>id</td><td>&nbsp;</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>8</td><td>setinstancevariable</td><td>id</td><td>val</td><td> =&gt; </td><td>&nbsp;</td></tr>
+<tr>
+<td></td><td>9</td><td>getclassvariable</td><td>id</td><td>&nbsp;</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>10</td><td>setclassvariable</td><td>id, declp</td><td>val</td><td> =&gt; </td><td>&nbsp;</td></tr>
+<tr>
+<td></td><td>11</td><td>getconstant</td><td>id</td><td>klass</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>12</td><td>setconstant</td><td>id</td><td>val, klass</td><td> =&gt; </td><td>&nbsp;</td></tr>
+<tr>
+<td></td><td>13</td><td>getglobal</td><td>entry</td><td>&nbsp;</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>14</td><td>setglobal</td><td>entry</td><td>val</td><td> =&gt; </td><td>&nbsp;</td></tr>
+<tr>
+<td>put</td><td>15</td><td>putnil</td><td>&nbsp;</td><td>&nbsp;</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>16</td><td>putself</td><td>&nbsp;</td><td>&nbsp;</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>17</td><td>putundef</td><td>&nbsp;</td><td>&nbsp;</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>18</td><td>putobject</td><td>val</td><td>&nbsp;</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>19</td><td>putstring</td><td>val</td><td>&nbsp;</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>20</td><td>concatstrings</td><td>num</td><td>...</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>21</td><td>tostring</td><td>&nbsp;</td><td>val</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>22</td><td>toregexp</td><td>flag</td><td>str</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>23</td><td>newarray</td><td>num</td><td>...</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>24</td><td>duparray</td><td>ary</td><td>&nbsp;</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>25</td><td>expandarray</td><td>num, flag</td><td>..., ary</td><td> =&gt; </td><td>...</td></tr>
+<tr>
+<td></td><td>26</td><td>concatarray</td><td>&nbsp;</td><td>ary1, ary2st</td><td> =&gt; </td><td>ary</td></tr>
+<tr>
+<td></td><td>27</td><td>splatarray</td><td>flag</td><td>ary</td><td> =&gt; </td><td>obj</td></tr>
+<tr>
+<td></td><td>28</td><td>checkincludearray</td><td>flag</td><td>obj, ary</td><td> =&gt; </td><td>obj, result</td></tr>
+<tr>
+<td></td><td>29</td><td>newhash</td><td>num</td><td>...</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>30</td><td>newrange</td><td>flag</td><td>low, high</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>31</td><td>putnot</td><td>&nbsp;</td><td>obj</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td>stack</td><td>32</td><td>pop</td><td>&nbsp;</td><td>val</td><td> =&gt; </td><td>&nbsp;</td></tr>
+<tr>
+<td></td><td>33</td><td>dup</td><td>&nbsp;</td><td>val</td><td> =&gt; </td><td>val1, val2</td></tr>
+<tr>
+<td></td><td>34</td><td>dupn</td><td>n</td><td>...</td><td> =&gt; </td><td>...</td></tr>
+<tr>
+<td></td><td>35</td><td>swap</td><td>&nbsp;</td><td>val, obj</td><td> =&gt; </td><td>obj, val</td></tr>
+<tr>
+<td></td><td>36</td><td>reput</td><td>&nbsp;</td><td>..., val</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>37</td><td>topn</td><td>n</td><td>...</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>38</td><td>emptstack</td><td>&nbsp;</td><td>...</td><td> =&gt; </td><td>...</td></tr>
+<tr>
+<td>setting</td><td>39</td><td>definemethod</td><td>id, body, is_singleton</td><td>obj</td><td> =&gt; </td><td>&nbsp;</td></tr>
+<tr>
+<td></td><td>40</td><td>alias</td><td>v_p, id1, id2</td><td>&nbsp;</td><td> =&gt; </td><td>&nbsp;</td></tr>
+<tr>
+<td></td><td>41</td><td>undef</td><td>id</td><td>&nbsp;</td><td> =&gt; </td><td>&nbsp;</td></tr>
+<tr>
+<td></td><td>42</td><td>defined</td><td>type, obj, needstr</td><td>v</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>43</td><td>postexe</td><td>blockiseq</td><td>&nbsp;</td><td> =&gt; </td><td>&nbsp;</td></tr>
+<tr>
+<td></td><td>44</td><td>trace</td><td>flag, args</td><td>&nbsp;</td><td> =&gt; </td><td>&nbsp;</td></tr>
+<tr>
+<td>class/module</td><td>45</td><td>defineclass</td><td>id, klass_iseq, define_type</td><td>cbase, super</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td>method/iterator</td><td>46</td><td>send</td><td>id, op_argc, blockiseq, op_flag, ic</td><td>...</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>47</td><td>invokesuper</td><td>op_argc, blockiseq, flag</td><td>...</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>48</td><td>invokeblock</td><td>num, flag</td><td>...</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>49</td><td>leave</td><td>&nbsp;</td><td>val</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>50</td><td>finish</td><td>&nbsp;</td><td>val</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td>exception</td><td>51</td><td>throw</td><td>throw_state</td><td>throwobj</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td>jump</td><td>52</td><td>jump</td><td>dst</td><td>&nbsp;</td><td> =&gt; </td><td>&nbsp;</td></tr>
+<tr>
+<td></td><td>53</td><td>branchif</td><td>dst</td><td>val</td><td> =&gt; </td><td>&nbsp;</td></tr>
+<tr>
+<td></td><td>54</td><td>branchunless</td><td>dst</td><td>val</td><td> =&gt; </td><td>&nbsp;</td></tr>
+<tr>
+<td>optimize</td><td>55</td><td>getinlinecache</td><td>ic, dst</td><td>&nbsp;</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>56</td><td>onceinlinecache</td><td>ic, dst</td><td>&nbsp;</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>57</td><td>setinlinecache</td><td>dst</td><td>val</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>58</td><td>opt_case_dispatch</td><td>hash, else_offset</td><td>..., key</td><td> =&gt; </td><td>&nbsp;</td></tr>
+<tr>
+<td></td><td>59</td><td>opt_checkenv</td><td>&nbsp;</td><td>&nbsp;</td><td> =&gt; </td><td>&nbsp;</td></tr>
+<tr>
+<td></td><td>60</td><td>opt_plus</td><td>&nbsp;</td><td>recv, obj</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>61</td><td>opt_minus</td><td>&nbsp;</td><td>recv, obj</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>62</td><td>opt_mult</td><td>&nbsp;</td><td>recv, obj</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>63</td><td>opt_div</td><td>&nbsp;</td><td>recv, obj</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>64</td><td>opt_mod</td><td>&nbsp;</td><td>recv, obj</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>65</td><td>opt_eq</td><td>&nbsp;</td><td>recv, obj</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>66</td><td>opt_lt</td><td>&nbsp;</td><td>recv, obj</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>67</td><td>opt_le</td><td>&nbsp;</td><td>recv, obj</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>68</td><td>opt_ltlt</td><td>&nbsp;</td><td>recv, obj</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>69</td><td>opt_aref</td><td>&nbsp;</td><td>recv, obj</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>70</td><td>opt_aset</td><td>&nbsp;</td><td>recv, obj, set</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>71</td><td>opt_length</td><td>&nbsp;</td><td>recv</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>72</td><td>opt_succ</td><td>&nbsp;</td><td>recv</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>73</td><td>opt_regexpmatch1</td><td>r</td><td>obj</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>74</td><td>opt_regexpmatch2</td><td>&nbsp;</td><td>obj2, obj1</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>75</td><td>opt_call_native_compiled</td><td>&nbsp;</td><td>&nbsp;</td><td> =&gt; </td><td>&nbsp;</td></tr>
+<tr>
+<td>joke</td><td>76</td><td>bitblt</td><td>&nbsp;</td><td>&nbsp;</td><td> =&gt; </td><td>ret</td></tr>
+<tr>
+<td></td><td>77</td><td>answer</td><td>&nbsp;</td><td>&nbsp;</td><td> =&gt; </td><td>ret</td></tr>
+<tr>
+<td>optimize</td><td>78</td><td>getlocal_OP_2</td><td>&nbsp;</td><td>&nbsp;</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>79</td><td>getlocal_OP_3</td><td>&nbsp;</td><td>&nbsp;</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>80</td><td>getlocal_OP_4</td><td>&nbsp;</td><td>&nbsp;</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>81</td><td>setlocal_OP_2</td><td>&nbsp;</td><td>val</td><td> =&gt; </td><td>&nbsp;</td></tr>
+<tr>
+<td></td><td>82</td><td>setlocal_OP_3</td><td>&nbsp;</td><td>val</td><td> =&gt; </td><td>&nbsp;</td></tr>
+<tr>
+<td></td><td>83</td><td>setlocal_OP_4</td><td>&nbsp;</td><td>val</td><td> =&gt; </td><td>&nbsp;</td></tr>
+<tr>
+<td></td><td>84</td><td>getdynamic_OP__WC__0</td><td>idx</td><td>&nbsp;</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>85</td><td>getdynamic_OP_1_0</td><td>&nbsp;</td><td>&nbsp;</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>86</td><td>getdynamic_OP_2_0</td><td>&nbsp;</td><td>&nbsp;</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>87</td><td>getdynamic_OP_3_0</td><td>&nbsp;</td><td>&nbsp;</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>88</td><td>getdynamic_OP_4_0</td><td>&nbsp;</td><td>&nbsp;</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>89</td><td>setdynamic_OP__WC__0</td><td>idx</td><td>val</td><td> =&gt; </td><td>&nbsp;</td></tr>
+<tr>
+<td></td><td>90</td><td>setdynamic_OP_1_0</td><td>&nbsp;</td><td>val</td><td> =&gt; </td><td>&nbsp;</td></tr>
+<tr>
+<td></td><td>91</td><td>setdynamic_OP_2_0</td><td>&nbsp;</td><td>val</td><td> =&gt; </td><td>&nbsp;</td></tr>
+<tr>
+<td></td><td>92</td><td>setdynamic_OP_3_0</td><td>&nbsp;</td><td>val</td><td> =&gt; </td><td>&nbsp;</td></tr>
+<tr>
+<td></td><td>93</td><td>setdynamic_OP_4_0</td><td>&nbsp;</td><td>val</td><td> =&gt; </td><td>&nbsp;</td></tr>
+<tr>
+<td></td><td>94</td><td>putobject_OP_INT2FIX_O_0_C_</td><td>&nbsp;</td><td>&nbsp;</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>95</td><td>putobject_OP_INT2FIX_O_1_C_</td><td>&nbsp;</td><td>&nbsp;</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>96</td><td>putobject_OP_Qtrue</td><td>&nbsp;</td><td>&nbsp;</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>97</td><td>putobject_OP_Qfalse</td><td>&nbsp;</td><td>&nbsp;</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>98</td><td>send_OP__WC___WC__Qfalse_0__WC_</td><td>id, op_argc, ic</td><td>...</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>99</td><td>send_OP__WC__0_Qfalse_0__WC_</td><td>id, ic</td><td>...</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>100</td><td>send_OP__WC__1_Qfalse_0__WC_</td><td>id, ic</td><td>...</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>101</td><td>send_OP__WC__2_Qfalse_0__WC_</td><td>id, ic</td><td>...</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>102</td><td>send_OP__WC__3_Qfalse_0__WC_</td><td>id, ic</td><td>...</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>103</td><td>send_OP__WC___WC__Qfalse_0x04__WC_</td><td>id, op_argc, ic</td><td>...</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>104</td><td>send_OP__WC__0_Qfalse_0x04__WC_</td><td>id, ic</td><td>...</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>105</td><td>send_OP__WC__1_Qfalse_0x04__WC_</td><td>id, ic</td><td>...</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>106</td><td>send_OP__WC__2_Qfalse_0x04__WC_</td><td>id, ic</td><td>...</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>107</td><td>send_OP__WC__3_Qfalse_0x04__WC_</td><td>id, ic</td><td>...</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>108</td><td>send_OP__WC__0_Qfalse_0x0c__WC_</td><td>id, ic</td><td>...</td><td> =&gt; </td><td>val</td></tr>
+<tr>
+<td></td><td>109</td><td>UNIFIED_putobject_putobject</td><td>val_0, val_1</td><td>&nbsp;</td><td> =&gt; </td><td>val_0, val_1</td></tr>
+<tr>
+<td></td><td>110</td><td>UNIFIED_putobject_putstring</td><td>val_0, val_1</td><td>&nbsp;</td><td> =&gt; </td><td>val_0, val_1</td></tr>
+<tr>
+<td></td><td>111</td><td>UNIFIED_putobject_setlocal</td><td>val_0, idx_1</td><td>&nbsp;</td><td> =&gt; </td><td>&nbsp;</td></tr>
+<tr>
+<td></td><td>112</td><td>UNIFIED_putobject_setdynamic</td><td>val_0, idx_1, level_1</td><td>&nbsp;</td><td> =&gt; </td><td>&nbsp;</td></tr>
+<tr>
+<td></td><td>113</td><td>UNIFIED_putstring_putstring</td><td>val_0, val_1</td><td>&nbsp;</td><td> =&gt; </td><td>val_0, val_1</td></tr>
+<tr>
+<td></td><td>114</td><td>UNIFIED_putstring_putobject</td><td>val_0, val_1</td><td>&nbsp;</td><td> =&gt; </td><td>val_0, val_1</td></tr>
+<tr>
+<td></td><td>115</td><td>UNIFIED_putstring_setlocal</td><td>val_0, idx_1</td><td>&nbsp;</td><td> =&gt; </td><td>&nbsp;</td></tr>
+<tr>
+<td></td><td>116</td><td>UNIFIED_putstring_setdynamic</td><td>val_0, idx_1, level_1</td><td>&nbsp;</td><td> =&gt; </td><td>&nbsp;</td></tr>
+<tr>
+<td></td><td>117</td><td>UNIFIED_dup_setlocal</td><td>idx_1</td><td>val_0</td><td> =&gt; </td><td>val2_0</td></tr>
+<tr>
+<td></td><td>118</td><td>UNIFIED_getlocal_getlocal</td><td>idx_0, idx_1</td><td>&nbsp;</td><td> =&gt; </td><td>val_0, val_1</td></tr>
+<tr>
+<td></td><td>119</td><td>UNIFIED_getlocal_putobject</td><td>idx_0, val_1</td><td>&nbsp;</td><td> =&gt; </td><td>val_0, val_1</td></tr>
+
+</table>
+
+<address>
+  SASADA Koichi / ko1 at atdot.net
+</address>
+</div>
+  </body>
+</html>
+
+
+
