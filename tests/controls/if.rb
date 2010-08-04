@@ -1,4 +1,4 @@
-a = nil
+a = true
 t = false
 
 if t
@@ -9,5 +9,5 @@ else
   c = nil
 end
 
-c = true if t
+#c = true if t
 c
