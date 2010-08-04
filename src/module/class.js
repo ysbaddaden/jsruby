@@ -13,8 +13,8 @@ rb_class.prototype.searchMethod = function(method_name)
 
 rb_class.prototype.callMethod = function(method, args)
 {
-  //return this.searchMethod(method).call(this, args);
-  return (this.searchMethod(method))(this, args);
+  return this.searchMethod(method).apply(this, args);
+  //return (this.searchMethod(method))(this, args);
 }
 
 //rb_class.prototype.dup = function()

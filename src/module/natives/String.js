@@ -11,10 +11,11 @@ rb_classes['String'].prototype.toString = function() {
 }
 
 rb_classes['String'].prototype.methods = {
-  '+': function(self, args) { return new rb_classes['String'](self.value + args[0].value); },
-  '*': function(self, args) { return new rb_classes['String'](self.value * args[0].value); },
-  'to_s': function(self) { return new rb_classes['String'](self.value); },
-  'to_i': function(self) { return new rb_classes['Integer'](self.value); },
-  'to_f': function(self) { return new rb_classes['Float'](self.value); }
+  '+': function(other) { return new rb_classes['String'](this.value + other.value); },
+  '*': function(other) { return new rb_classes['String'](this.value * other.value); },
+  
+  'to_s': function() { return new rb_classes['String'](this.value); },
+  'to_i': function() { return new rb_classes['Integer'](this.value); },
+  'to_f': function() { return new rb_classes['Float'](this.value); }
 }
 

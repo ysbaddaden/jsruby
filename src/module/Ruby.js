@@ -45,6 +45,10 @@ function rb_is_true(v) {
   return !rb_is_false(v);
 }
 
+function rb_bool(v) {
+  v ? rb_objects['true'] : rb_objects['false'];
+}
+
 include('class.js')
 
 include('natives/NilClass.js');
