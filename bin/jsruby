@@ -5,7 +5,7 @@ PATH=$PATH:$ROOT/bin
 
 JS_FILE="$1.js"
 
-ruby $ROOT/src/compile.rb "$1" > $JS_FILE
-node $ROOT/src/ruby.js $JS_FILE
+ruby $ROOT/lib/compile.rb "$1" > $JS_FILE
+node $ROOT/lib/ruby.js $JS_FILE
 rm $JS_FILE
 
