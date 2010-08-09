@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/lib/compile.rb'
 namespace :compile do
   desc ""
   task :tests do
-    Dir[File.dirname(__FILE__) + '/test/*.inc'].each do |file|
+    Dir[File.dirname(__FILE__) + '/test/*.in'].each do |file|
       # IMPROVE: do not recompile if .inc file is older than .js file
       
       tests = []
@@ -23,7 +23,7 @@ namespace :compile do
         end
       end
       
-      File.open(file.sub(/\.inc$/, '.js'), 'w') do |out|
+      File.open(file.sub(/\.in$/, '.js'), 'w') do |out|
         tests.each do |test|
           test[:name].gsub!('"', '\"')
           
