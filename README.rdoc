@@ -2,12 +2,12 @@
 
 A Ruby 1.9 virtual machine in JavaScript (thanks to node.js).
 
-Influenced by HotRuby: http://hotruby.yukoba.jp/
+Heavily influenced by HotRuby 
 
-= Requirements
+= Requires
 
 - node.js (of course)
-- Ruby 1.9.2 (YARV), for actually compiling the ruby source code to opcodes.
+- Ruby 1.9.2 (YARV), for actually compiling ruby source code to opcodes.
 
 = License
 
