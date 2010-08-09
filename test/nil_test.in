@@ -1,0 +1,16 @@
+exports["nil"] = function(test) {
+  test.rb_nil("nil", ["YARVInstructionSequence/SimpleDataFormat",1,2,1,{"arg_size":0,"local_size":1,"stack_max":1},"<compiled>","<compiled>",null,1,"top",[],0,[],[1,["trace",1],["putnil"],["leave"]]]);
+}
+
+exports["assign"] = function(test) {
+  test.rb_nil("a = nil", ["YARVInstructionSequence/SimpleDataFormat",1,2,1,{"arg_size":0,"local_size":2,"stack_max":2},"<compiled>","<compiled>",null,1,"top",["a"],0,[],[1,["trace",1],["putnil"],["dup"],["setlocal",2],["leave"]]]);
+}
+
+exports["copy"] = function(test) {
+  test.rb_nil("a = nil\nb = a", ["YARVInstructionSequence/SimpleDataFormat",1,2,1,{"arg_size":0,"local_size":3,"stack_max":2},"<compiled>","<compiled>",null,1,"top",["a","b"],0,[],[1,["trace",1],["putnil"],["setlocal",3],2,["trace",1],["getlocal",3],["dup"],["setlocal",2],["leave"]]]);
+}
+
+exports["nil isn't a reference"] = function(test) {
+  test.rb_nil("a = nil\nb = a\na = true\nb", ["YARVInstructionSequence/SimpleDataFormat",1,2,1,{"arg_size":0,"local_size":3,"stack_max":1},"<compiled>","<compiled>",null,1,"top",["a","b"],0,[],[1,["trace",1],["putnil"],["setlocal",3],2,["trace",1],["getlocal",3],["setlocal",2],3,["trace",1],["putobject",true],["setlocal",3],4,["trace",1],["getlocal",2],["leave"]]]);
+}
+
