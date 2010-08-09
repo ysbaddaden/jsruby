@@ -38,6 +38,10 @@ namespace :compile do
           case test[:expect]
           when 'nil'
             out << "  test.rb_nil(\"#{test[:code]}\", #{test[:json]});\n"
+          when 'true'
+            out << "  test.rb_true(\"#{test[:code]}\", #{test[:json]});\n"
+          when 'false'
+            out << "  test.rb_false(\"#{test[:code]}\", #{test[:json]});\n"
           end
           
           out <<  "}\n\n"

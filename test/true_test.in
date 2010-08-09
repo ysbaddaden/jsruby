@@ -1,0 +1,34 @@
+#> true : true
+true
+
+#> true:assign
+a = true
+
+#> true:copy
+a = true
+b = a
+
+#> true:true isn't a reference
+a = true
+b = a
+a = nil
+b
+
+#> false:#!
+!true
+
+#> false:not
+not true
+
+#> true:&& true
+true && true
+
+#> false:&& false
+true && false
+
+#> true:|| true
+true || true
+
+#> true:|| false
+true || false
+
