@@ -1,4 +1,4 @@
-#! /usr/local/bin/node
+#! ./bin/node
 
 require.paths.push(__dirname);
 require.paths.push(__dirname + '/deps');

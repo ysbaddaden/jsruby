@@ -6,6 +6,6 @@ PATH=$PATH:$ROOT/bin
 JS_FILE="$1.js"
 
 ruby $ROOT/lib/compile.rb "$1" > $JS_FILE
-node $ROOT/lib/ruby.js $JS_FILE
+node $ROOT/lib/runner.js $JS_FILE
 rm $JS_FILE
 

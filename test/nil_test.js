@@ -1,4 +1,4 @@
-var Ruby = require('module/Ruby');
+var Ruby = require('Ruby');
 
 exports.nil_test = function(test)
 {
