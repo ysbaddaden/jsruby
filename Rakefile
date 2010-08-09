@@ -1,10 +1,10 @@
+require File.dirname(__FILE__) + '/lib/compile.rb'
 
 namespace :compile do
   desc ""
   task :tests do
     Dir[File.dirname(__FILE__) + '/test/*.inc'].each do |file|
       # IMPROVE: do not recompile if .inc file is older than .js file
-      # IMPROVE: precompile ruby code
       
       tests = []
       idx = -1
@@ -27,6 +27,8 @@ namespace :compile do
         tests.each do |test|
           test[:name].gsub!('"', '\"')
           
+          test[:json] = JSRuby::Compiler.compile(test[:code]).to_a.to_json
+          
           test[:code].strip!
           test[:code].gsub!('"', '\"')
           test[:code].gsub!(/\n/, '\n')
@@ -35,7 +37,7 @@ namespace :compile do
           
           case test[:expect]
           when 'nil'
-            out << "  test.rb_nil(\"#{test[:code]}\");\n"
+            out << "  test.rb_nil(\"#{test[:code]}\", #{test[:json]});\n"
           end
           
           out <<  "}\n\n"
