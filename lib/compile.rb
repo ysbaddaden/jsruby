@@ -23,7 +23,8 @@ RubyVM::InstructionSequence.compile_option = {
   :instructions_unification => false,
   :stack_caching            => false,
 }
-iseq = RubyVM::InstructionSequence.compile_file(ARGV[0]).to_a
+
+iseq = RubyVM::InstructionSequence.compile(ARGF.read).to_a
 iseq[13] = set_putfloat(iseq[13])
 puts iseq.to_json
 
